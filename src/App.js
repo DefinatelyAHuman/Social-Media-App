@@ -1,25 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import Welcome from './components/Welcome';
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
+import Footer from './components/Footer';
+import AddPost from './components/AddPost';
+import { useState } from 'react';
+import PostListProvider from './store/post-list-store';
+import Posts from './components/Posts';
+
+
+
+
 
 function App() {
+
+  const [tab,setTab]= useState("Welcome");
+
+  const content=()=>{
+    if(tab==="Home"){
+      return <div className='postlist'><Posts /></div>;
+    }else if(tab==="Add"){
+      return <div className='addpost'><AddPost /></div>;
+    }else if(tab==="Welcome"){
+      return <div className='addpost'><Welcome /></div>;
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <PostListProvider>
+      <div className='layout'> 
+        <Sidebar setTab={setTab}/> 
+        <div className='innerlayout'>
+          <Navbar/>
+          <div>{content()}</div>
+          <Footer/>
+        </div>
+      </div>
+    </PostListProvider>
+    </>
+  )
 }
 
 export default App;
