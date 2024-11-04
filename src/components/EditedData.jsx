@@ -36,6 +36,7 @@ function EditedData({ edtPost, editPage }) {
         </label>
         <input
           type="text"
+          style={{ width: "78vw" }}
           className="form-control"
           id="imageUrl"
           ref={edtImgUrl}

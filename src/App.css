@@ -15,9 +15,9 @@
 
 .navbar {
   display: flex;
-  justify-content: space-between; /* Ensures left and right are spaced correctly */
-  align-items: center; /* Centers items vertically */
-  width: 100%; /* Full width */
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%; 
 }
 .sidebar {
   position: fixed; 
@@ -32,7 +32,7 @@
   bottom: 0;
   width: 100%;
   background-color: #343a40; 
-  height: 140px;
+  height: 120px;
 }
 
 .login {
@@ -41,14 +41,15 @@
   width: 100%;
 }
 .container {
-  display: flex; /* Ensures the container uses flex */
-  justify-content: space-between; /* Spaces items evenly */
-  align-items: center; /* Centers items vertically */
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;  
 }
 
 .postlist{
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .addpost{

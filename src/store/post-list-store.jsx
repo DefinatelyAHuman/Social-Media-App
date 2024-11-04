@@ -8,10 +8,9 @@ const postListReducer = (currentPostList, action) => {
   } else if (action.type === "DELETE_POST") {
     return currentPostList.filter((post) => post.id !== action.payload);
   } else if (action.type === "EDIT_POST") {
-    const newList = currentPostList.filter(
-      (post) => post.id !== action.payload.id
+    return currentPostList.map((post) =>
+      post.id === action.payload.id ? action.payload.editedPost : post
     );
-    return [action.payload.editedPost, ...newList];
   }
   return currentPostList;
 };
