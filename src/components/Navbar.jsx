@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <header
       className="p-3 text-bg-dark navbar"
-      style={{ position: "sticky", top: 0 }}
+      style={{ position: "sticky", top: 0, zIndex: "1" }}
     >
       <div className="container d-flex justify-content-between align-items-center">
         <div className="d-flex align-items-center">

@@ -1,28 +1,21 @@
 import { createContext, useReducer } from "react";
 
-// Create the context
-export const PostList = createContext({
-  postList: [],
-  addPost: () => {},
-  deletePost: () => {},
-  editPost: () => {},
-});
+export const PostList = createContext({});
 
-// Reducer function
 const postListReducer = (currentPostList, action) => {
   if (action.type === "ADD_POST") {
     return [action.payload, ...currentPostList];
   } else if (action.type === "DELETE_POST") {
     return currentPostList.filter((post) => post.id !== action.payload);
   } else if (action.type === "EDIT_POST") {
-    return currentPostList.map((post) =>
-      post.id === action.payload.id ? action.payload.editedPost : post
+    const newList = currentPostList.filter(
+      (post) => post.id !== action.payload.id
     );
+    return [action.payload.editedPost, ...newList];
   }
   return currentPostList;
 };
 
-// Provider component
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(postListReducer, []);
 
