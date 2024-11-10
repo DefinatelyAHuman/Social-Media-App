@@ -1,11 +1,14 @@
-import { useContext, useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { PostList } from "../store/post-list-store";
+import { useNavigate } from "react-router-dom";
 
 function AddPost() {
   const { addPost } = useContext(PostList);
   const imgUrl = useRef();
   const caption = useRef();
   const like = useRef();
+
+  const navigate = useNavigate();
 
   const handleUploadbtn = (event) => {
     event.preventDefault();
@@ -29,11 +32,12 @@ function AddPost() {
       imgUrl.current.value = "";
       caption.current.value = "";
       like.current.value = "";
+      navigate("/home");
     }
   };
 
   return (
-    <form>
+    <form className="addpost">
       <div className="mb-3">
         <label htmlFor="imageUrl" className="form-label">
           Enter Image URL

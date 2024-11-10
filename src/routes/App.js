@@ -1,12 +1,14 @@
 import './App.css';
-import Welcome from './components/Welcome';
-import Navbar from './components/Navbar';
-import Sidebar from './components/Sidebar';
-import Footer from './components/Footer';
-import AddPost from './components/AddPost';
+import React from 'react';
+import Welcome from '../components/Welcome';
+import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
+import Footer from '../components/Footer';
+import AddPost from '../components/AddPost';
 import { useState } from 'react';
-import PostListProvider from './store/post-list-store';
-import Posts from './components/Posts';
+import PostListProvider from '../store/post-list-store';
+import Posts from '../components/Posts';
+import { Outlet } from 'react-router-dom';
 
 
 
@@ -32,7 +34,8 @@ function App() {
         <Sidebar setTab={setTab}/> 
         <div className='innerlayout'>
           <Navbar/>
-          <div>{content()}</div>
+          {/* <div>{content()}</div> */}
+          <Outlet/>
           <Footer/>
         </div>
       </div>

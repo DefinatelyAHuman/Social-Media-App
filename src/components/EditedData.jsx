@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 function EditedData({ edtPost, editPage }) {
   const edtImgUrl = useRef();

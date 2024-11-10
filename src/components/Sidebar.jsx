@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Sidebar({ setTab }) {
   const [home, setHome] = useState();
@@ -32,7 +33,8 @@ function Sidebar({ setTab }) {
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
-          <button
+          <Link
+            to="/home"
             className={`nav-link link-body-emphasis ${
               home === "Home" && "active"
             }`}
@@ -41,10 +43,11 @@ function Sidebar({ setTab }) {
             style={{ width: "100%" }}
           >
             Home
-          </button>
+          </Link>
         </li>
         <li>
-          <button
+          <Link
+            to="/addpost"
             className={`nav-link link-body-emphasis ${
               home === "Add" && "active"
             }`}
@@ -52,7 +55,7 @@ function Sidebar({ setTab }) {
             style={{ width: "100%" }}
           >
             Add-Post
-          </button>
+          </Link>
         </li>
       </ul>
     </div>
